@@ -12,13 +12,17 @@ public class RocketAgent : Agent
         rBody = GetComponent<Rigidbody>();
     }
 
+    public float forceMultiplier = 10; 
     
-    public override void OnActionReceived(ActionBuffers actionBuffers)
+    
+
+    
+    public override void OnActionReceived(float[] actionBuffers)
 {
     // Actions, size = 2
     Vector3 controlSignal = Vector3.zero;
-    controlSignal.x = actionBuffers.ContinuousActions[0];
-    controlSignal.y = actionBuffers.ContinuousActions[1];
+    controlSignal.x = actionBuffers[0];
+    controlSignal.y = actionBuffers[1];
     rBody.AddForce(controlSignal * forceMultiplier);
 
    //// Rewards
@@ -61,12 +65,10 @@ public class RocketAgent : Agent
         }
 
         // Move the target to a new spot
-        Target.localPosition = new Vector3(Random.value * 8 - 4,
-                                           0.5f,
-                                           Random.value * 8 - 4);
+        //Target.localPosition = new Vector3(Random.value * 8 - 4,
     }
     
-    public override void Heuristic(in ActionBuffers actionsOut)
+    public override void Heuristic(float[] actionsOut)
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
