@@ -1,0 +1,23 @@
+{
+    "My Behavior": {
+        "checkpoints": [
+            {
+                "steps": 768,
+                "file_path": "results/rocket_v1/My Behavior/My Behavior-768.onnx",
+                "reward": null,
+                "creation_time": 1614352997.961136
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 768,
+            "file_path": "results/rocket_v1/My Behavior.onnx",
+            "reward": null,
+            "creation_time": 1614352997.961136
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.1+cpu"
+    }
+}

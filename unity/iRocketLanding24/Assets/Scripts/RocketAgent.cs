@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
+using System;
 
 public class RocketAgent : Agent
 {
@@ -12,56 +13,91 @@ public class RocketAgent : Agent
         rBody = GetComponent<Rigidbody>();
     }
 
-    public float forceMultiplier = 10; 
-    
-    
-
-    
+    public float forceMultiplier = 10;
+    public float thrustMultipler = 30;
+    public float rotationMultiplier = 3;
+    public Transform Target;
+    public float oldDistance = 999;
     public override void OnActionReceived(float[] actionBuffers)
-{
-    // Actions, size = 2
-    Vector3 controlSignal = Vector3.zero;
-    controlSignal.x = actionBuffers[0];
-    controlSignal.y = actionBuffers[1];
-    rBody.AddForce(controlSignal * forceMultiplier);
+    {
+        //Debug.Log(actionBuffers);
+        if (actionBuffers[0] == 1)
+        {
+            rBody.AddForce(transform.up * thrustMultipler);
+        }
 
-   //// Rewards
-   //float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
+        if (actionBuffers[1] == 1)
+        {
+            //rBody.AddTorque(Vector3.down * rotationMultiplier);
+            //rBody.AddTorque(Vector3.left * rotationMultiplier);
+            rBody.AddTorque(Vector3.forward * rotationMultiplier);
+        }
+        
+        if (actionBuffers[2] == 1)
+        {
+            rBody.AddTorque(Vector3.forward * -rotationMultiplier);
+        }
+        
+       //// Rewards
+       float distanceToTarget = Math.Abs(this.transform.localPosition.x - Target.localPosition.x);
 
-   //// Reached target
-   //if (distanceToTarget < 1.42f)
-   //{
-   //    SetReward(1.0f);
-   //    EndEpisode();
-   //}
+       if (oldDistance == 999)
+       {
+           oldDistance = distanceToTarget;
+       }
 
-   //// Fell off platform
-   //else if (this.transform.localPosition.y < 0)
-   //{
-   //    EndEpisode();
-   //}
-}
-    
+       float distanceDelta = oldDistance - distanceToTarget;
+
+       float angle = this.transform.eulerAngles.z;
+
+       if (angle < 330 && angle > 30)
+       {
+           float diff = 180 - Math.Abs(180 - angle);
+           SetReward(-diff/90);
+       }
+       
+       // Debug.Log("angles: " + this.transform.eulerAngles + " dist: " + distanceDelta);
+       
+       SetReward(distanceDelta);
+
+       oldDistance = distanceToTarget;
+       
+       // Fell off platform
+       if (this.transform.localPosition.y < -5)
+       {
+           SetReward(-1.0f);
+           EndEpisode();
+       }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("TargetPad"))
+        {
+            SetReward(4);
+            EndEpisode();
+        }
+    }
     public override void CollectObservations(VectorSensor sensor)
-{
-    // Target and Agent positions
-    // sensor.AddObservation(Target.localPosition);
-    sensor.AddObservation(this.transform.localPosition);
+    {
+        // Target and Agent positions
+        sensor.AddObservation(Target.localPosition);
+        sensor.AddObservation(this.transform.localPosition);
 
-    // Agent velocity
-    sensor.AddObservation(rBody.velocity.x);
-    sensor.AddObservation(rBody.velocity.y);
-}
+        // Agent velocity
+        sensor.AddObservation(rBody.velocity.x);
+        sensor.AddObservation(rBody.velocity.y);
+    }
     
     
     public override void OnEpisodeBegin()
     {
        // If the Agent fell, zero its momentum
-        if (this.transform.localPosition.y < 0)
+        if (this.transform.localPosition.y < -5)
         {
             this.rBody.angularVelocity = Vector3.zero;
             this.rBody.velocity = Vector3.zero;
-            this.transform.localPosition = new Vector3( 0, 0.5f, 0);
+            this.transform.localPosition = new Vector3( 7, 10, 5);
+            this.transform.rotation = Quaternion.identity;
         }
 
         // Move the target to a new spot
@@ -70,21 +106,21 @@ public class RocketAgent : Agent
     
     public override void Heuristic(float[] actionsOut)
     {
+        actionsOut[0] = 0;
+        actionsOut[1] = 0;
+        actionsOut[2] = 0;
+            
+        if (Input.GetKey(KeyCode.Space))
+        {
+            actionsOut[0] = 1;
+        }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(0.1f, 0f, 0f);
+            actionsOut[1] = 1;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(-0.1f, 0f, 0f);
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Translate(0.0f, 0.1f, 0f);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(0.0f, -0.1f, 0f);
+            actionsOut[2] = 1;
         }
     }
 }
