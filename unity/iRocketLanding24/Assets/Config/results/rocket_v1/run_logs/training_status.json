@@ -1,18 +1,24 @@
 {
-    "My Behavior": {
+    "Rocket": {
         "checkpoints": [
             {
-                "steps": 768,
-                "file_path": "results/rocket_v1/My Behavior/My Behavior-768.onnx",
+                "steps": 90286,
+                "file_path": "results/rocket_v1/Rocket/Rocket-90286.onnx",
                 "reward": null,
-                "creation_time": 1614352997.961136
+                "creation_time": 1614592274.5242748
+            },
+            {
+                "steps": 107566,
+                "file_path": "results/rocket_v1/Rocket/Rocket-107566.onnx",
+                "reward": null,
+                "creation_time": 1614592430.3507166
             }
         ],
         "final_checkpoint": {
-            "steps": 768,
-            "file_path": "results/rocket_v1/My Behavior.onnx",
+            "steps": 107566,
+            "file_path": "results/rocket_v1/Rocket.onnx",
             "reward": null,
-            "creation_time": 1614352997.961136
+            "creation_time": 1614592430.3507166
         }
     },
     "metadata": {
