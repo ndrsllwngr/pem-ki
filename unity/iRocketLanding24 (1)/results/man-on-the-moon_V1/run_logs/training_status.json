@@ -1,0 +1,23 @@
+{
+    "RocketBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 332543,
+                "file_path": "results/man-on-the-moon_V1/RocketBehaviour/RocketBehaviour-332543.onnx",
+                "reward": null,
+                "creation_time": 1614702919.888449
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 332543,
+            "file_path": "results/man-on-the-moon_V1/RocketBehaviour.onnx",
+            "reward": null,
+            "creation_time": 1614702919.888449
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.0"
+    }
+}
