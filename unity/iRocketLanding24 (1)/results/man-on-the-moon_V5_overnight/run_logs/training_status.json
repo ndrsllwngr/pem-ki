@@ -1,0 +1,47 @@
+{
+    "RocketBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 499978,
+                "file_path": "results/man-on-the-moon_V5_overnight/RocketBehaviour/RocketBehaviour-499978.onnx",
+                "reward": 0.6070464025251567,
+                "creation_time": 1614725072.312702
+            },
+            {
+                "steps": 920687,
+                "file_path": "results/man-on-the-moon_V5_overnight/RocketBehaviour/RocketBehaviour-920687.onnx",
+                "reward": -0.6939499918371439,
+                "creation_time": 1614725507.178848
+            },
+            {
+                "steps": 999952,
+                "file_path": "results/man-on-the-moon_V5_overnight/RocketBehaviour/RocketBehaviour-999952.onnx",
+                "reward": null,
+                "creation_time": 1614725622.520255
+            },
+            {
+                "steps": 1499941,
+                "file_path": "results/man-on-the-moon_V5_overnight/RocketBehaviour/RocketBehaviour-1499941.onnx",
+                "reward": -0.7265500165522099,
+                "creation_time": 1614726125.715418
+            },
+            {
+                "steps": 1687984,
+                "file_path": "results/man-on-the-moon_V5_overnight/RocketBehaviour/RocketBehaviour-1687984.onnx",
+                "reward": -0.2264000102877617,
+                "creation_time": 1614726319.471298
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1687984,
+            "file_path": "results/man-on-the-moon_V5_overnight/RocketBehaviour.onnx",
+            "reward": -0.2264000102877617,
+            "creation_time": 1614726319.471298
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.0"
+    }
+}

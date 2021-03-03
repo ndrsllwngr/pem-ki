@@ -68,14 +68,10 @@ public class RocketAgent : Agent
             oldDistanceToMoon = distanceToMoon;
         }
 
-        // Reward for getting closer to moon / punish if distance increases
+        // Reward for getting closer to moon
         if (oldDistanceToMoon > distanceToMoon)
         {
             AddReward(0.0001f);
-        }
-        else
-        {
-            AddReward(-0.00005f);
         }
         
         // Punish agent for spinning
@@ -94,55 +90,6 @@ public class RocketAgent : Agent
         {
             EndEpisode();
         }
-        /*
-        float angle = this.transform.eulerAngles.z;
-        if (angle < 320 && angle > 40)
-        {
-            float diff = 180 - Math.Abs(180 - angle);
-            SetReward(-diff/900);
-        }
-        else if (angle < 40)
-        {
-            SetReward((40 - angle) / 1000);
-        }
-        else if (angle > 320)
-        {
-            SetReward(Math.Abs(320 - angle) / 1000);
-        }
-        
-        if (angle < 280 && angle > 80)
-        {
-            //Debug.Log(angle);
-            SetReward(-1);
-            EndEpisode();
-        }
- 
-        float angularVelocity = rBody.angularVelocity.z;
- 
-        //Debug.Log("angular velocity: " + angularVelocity);
- 
-        if (Math.Abs(angularVelocity) > 0.3)
-        {
-            SetReward(-Math.Abs(angularVelocity / 5));
-        }
- 
-        // Debug.Log("angles: " + this.transform.eulerAngles + " dist: " + distanceDelta);
- 
-        oldDistanceX = distanceToTargetX;
-        
-        // to far away
-        if (distanceToTargetX > 200)
-        {
-            SetReward(-1.0f);
-            EndEpisode();
-        }
-        
-        // Fell off platform
-        if (this.transform.localPosition.y < -50.0f)
-        {
-            SetReward(-1.0f);
-            EndEpisode();
-        }*/
     }
     
 
@@ -164,10 +111,19 @@ public class RocketAgent : Agent
             // Angle of rocket to moon center
             var angle = Math.Abs(Vector3.Angle(directionMoonToAgent, trans.up));
 
-            Debug.Log("Landed on Moon with "+angle+"°");
-            
+            // Angle Squared / 1000 -> bigger than zero for angles bigger than ca 62 degrees
             var bonus = Math.Max(0, 4 - angle * angle / 1000);
-            SetReward(1 + bonus);
+            // Only set reward if angle is between 0 and about 62
+            if (bonus > 0)
+            {
+                SetReward(2+bonus);
+            }
+            // Otherwise only add reward and keep rewards earned before
+            else
+            {
+                AddReward(1);
+            }
+            //End Episode in any case
             EndEpisode();
         }
 
@@ -187,18 +143,28 @@ public class RocketAgent : Agent
         var transform1 = transform;
         if (transform1 == null) return;
         var localPosition = transform1.localPosition;
+        var position = transform1.position;
+        var up = transform1.up;
         
         // Distance to moon / earth 
         sensor.AddObservation(Vector3.Distance(localPosition, moon.localPosition)); // 1 obs
         sensor.AddObservation(Vector3.Distance(localPosition, earth.localPosition)); // 1 obs
         
         // Direction moon to agent
-        var directionMoonToAgent = (transform1.position - moon.position).normalized;
+        var directionMoonToAgent = (position - moon.position).normalized;
         sensor.AddObservation(directionMoonToAgent); // 3 obs
         
+        // Direction earth to agent
+        var directionEarthToAgent = (position - earth.position).normalized;
+        sensor.AddObservation(directionEarthToAgent); // 3 obs
+        
         // Angle of rocket to moon center
-        var angle = Vector3.Angle(directionMoonToAgent, transform1.up);
+        var angle = Vector3.Angle(directionMoonToAgent, up);
         sensor.AddObservation(angle); // 1 obs
+        
+        // Angle of rocket to earth center
+        var angle2 = Vector3.Angle(directionEarthToAgent, up);
+        sensor.AddObservation(angle2); // 1 obs
         
         // Agent position / z angle
         sensor.AddObservation(localPosition); // 3 obs

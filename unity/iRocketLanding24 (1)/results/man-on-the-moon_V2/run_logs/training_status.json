@@ -2,35 +2,41 @@
     "RocketBehaviour": {
         "checkpoints": [
             {
-                "steps": 499945,
-                "file_path": "results/man-on-the-moon_V2/RocketBehaviour/RocketBehaviour-499945.onnx",
-                "reward": 0.3048835340887308,
-                "creation_time": 1614706378.617901
+                "steps": 1565408,
+                "file_path": "results/man-on-the-moon_V2/RocketBehaviour/RocketBehaviour-1565408.onnx",
+                "reward": 0.20781345828436315,
+                "creation_time": 1614707932.514698
             },
             {
-                "steps": 999974,
-                "file_path": "results/man-on-the-moon_V2/RocketBehaviour/RocketBehaviour-999974.onnx",
-                "reward": 0.01125001348555088,
-                "creation_time": 1614706840.640623
+                "steps": 1999959,
+                "file_path": "results/man-on-the-moon_V2/RocketBehaviour/RocketBehaviour-1999959.onnx",
+                "reward": 0.9671347249920169,
+                "creation_time": 1614708424.8366249
             },
             {
-                "steps": 1499978,
-                "file_path": "results/man-on-the-moon_V2/RocketBehaviour/RocketBehaviour-1499978.onnx",
-                "reward": -0.3596205034603675,
-                "creation_time": 1614707319.0869389
+                "steps": 2499977,
+                "file_path": "results/man-on-the-moon_V2/RocketBehaviour/RocketBehaviour-2499977.onnx",
+                "reward": -1.0670223111907642,
+                "creation_time": 1614708937.663441
             },
             {
-                "steps": 1504122,
-                "file_path": "results/man-on-the-moon_V2/RocketBehaviour/RocketBehaviour-1504122.onnx",
-                "reward": 0.2590110680709283,
-                "creation_time": 1614707323.400424
+                "steps": 2999968,
+                "file_path": "results/man-on-the-moon_V2/RocketBehaviour/RocketBehaviour-2999968.onnx",
+                "reward": null,
+                "creation_time": 1614709502.007773
+            },
+            {
+                "steps": 3200061,
+                "file_path": "results/man-on-the-moon_V2/RocketBehaviour/RocketBehaviour-3200061.onnx",
+                "reward": -1.0675000622868538,
+                "creation_time": 1614709790.1138182
             }
         ],
         "final_checkpoint": {
-            "steps": 1504122,
+            "steps": 3200061,
             "file_path": "results/man-on-the-moon_V2/RocketBehaviour.onnx",
-            "reward": 0.2590110680709283,
-            "creation_time": 1614707323.400424
+            "reward": -1.0675000622868538,
+            "creation_time": 1614709790.1138182
         }
     },
     "metadata": {
