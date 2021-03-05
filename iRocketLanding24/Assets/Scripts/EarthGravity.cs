@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using System;
 using System.Globalization;
-using static UnityEditor.Handles;
+// using static UnityEditor.Handles;
 
 public class EarthGravity : MonoBehaviour
 {
@@ -49,11 +51,11 @@ public class EarthGravity : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (!enableUi) return;
-        GUI.color = Color.green;
-        var position = transform.position;
-        Label(position - (position - 
-                                  earth.transform.position)/2, "g("+_gravityToEarth.magnitude.ToString(CultureInfo.CurrentCulture)+")");
-        Label(position - (position - 
-                                  moon.transform.position)/2, "g("+_gravityToMoon.magnitude.ToString(CultureInfo.CurrentCulture)+")");
+        // GUI.color = Color.green;
+        // var position = transform.position;
+        // Handles.Label(position - (position - 
+        //                           earth.transform.position)/2, "g("+_gravityToEarth.magnitude.ToString(CultureInfo.CurrentCulture)+")");
+        // Handles.Label(position - (position - 
+        //                           moon.transform.position)/2, "g("+_gravityToMoon.magnitude.ToString(CultureInfo.CurrentCulture)+")");
     }
 }

@@ -1,6 +1,8 @@
-﻿using System.Globalization;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
-using static UnityEditor.Handles;
+// using UnityEditor;
 
 [ExecuteInEditMode]
 public class DistanceVisualization : MonoBehaviour
@@ -21,8 +23,8 @@ public class DistanceVisualization : MonoBehaviour
     private void OnDrawGizmos()
     {
         GUI.color = Color.black;
-        var position = transform.position;
-        Label(position - (position - 
-                                  target.transform.position)/2, distanceBetweenObjects.ToString(CultureInfo.CurrentCulture));
+        // var position = transform.position;
+        // Handles.Label(position - (position - 
+        //                          target.transform.position)/2, distanceBetweenObjects.ToString(CultureInfo.CurrentCulture));
     }
 }
