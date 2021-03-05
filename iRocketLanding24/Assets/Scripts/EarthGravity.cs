@@ -8,20 +8,20 @@ public class EarthGravity : MonoBehaviour
     //set default gravity strength
     public float earthGravity = 300;
     public float moonGravity = 250;
-    public bool enableUi = false;
+    public bool enableUi;
     public Transform earth;
     public Transform moon;
 
-    private float _moonEarthDist;
+    // private float _moonEarthDist;
     private Vector3 _gravityToEarth;
     private Vector3 _gravityToMoon;
     private Rigidbody _rBody;
     
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _moonEarthDist = Vector3.Distance(earth.localPosition, moon.localPosition);
+        // _moonEarthDist = Vector3.Distance(earth.localPosition, moon.localPosition);
         _rBody = GetComponent<Rigidbody>();
     }
 

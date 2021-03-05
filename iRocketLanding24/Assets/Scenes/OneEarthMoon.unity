@@ -1580,7 +1580,7 @@ PrefabInstance:
     - target: {fileID: 2136796065, guid: a423d348304168043a41498ab1b25e61, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: d984f7a8927904798b2f4dfd25c452d3,
+      objectReference: {fileID: 5022602860645237092, guid: eae2cb44251fe483699e5d1fe03c1e41,
         type: 3}
     - target: {fileID: 2136796065, guid: a423d348304168043a41498ab1b25e61, type: 3}
       propertyPath: m_BehaviorName
@@ -1588,7 +1588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2136796065, guid: a423d348304168043a41498ab1b25e61, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2136796065, guid: a423d348304168043a41498ab1b25e61, type: 3}
       propertyPath: m_BrainParameters.VectorActionSpaceType
