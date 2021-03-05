@@ -1,9 +1,9 @@
 # pem-ki
 Development of Media Systems: AI Applications - Group project (2020/2021)
 - Final pitch [.pdf](./docs/2020-03-05%20PEM-KI%20Final%20pitch.pdf), Concept [.pdf](./docs/2021-02-24%20PEM-KI%20Concept.pdf)
-- Demo
 
 
+[![Product demo](./docs/www.youtube.com_watch_v=hdwXt3sRDyw.png)](https://www.youtube.com/watch?v=hdwXt3sRDyw)
 
 - [pem-ki](#pem-ki)
   - [Getting Started](#getting-started)
