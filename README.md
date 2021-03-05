@@ -1,12 +1,13 @@
-# pem-ki
-Development of Media Systems: AI Applications - Group project (2021)
+# Development of Media Systems: AI Applications (WS2020/2021)
+Unity + ML-Agents project simulates a rocket flight from earth to moon, learning autonomous flying behaviour in varying gravity environments.
+
 - Final pitch [.pdf](./docs/2020-03-05%20PEM-KI%20Final%20pitch.pdf), Concept [.pdf](./docs/2021-02-24%20PEM-KI%20Concept.pdf)
 - Live WebGL demo [https://github.andreasellwanger.com/pem-ki/](https://github.andreasellwanger.com/pem-ki/)
 
-
 [![Product demo](./docs/www.youtube.com_watch_v=hdwXt3sRDyw.png)](https://www.youtube.com/watch?v=hdwXt3sRDyw)
+[![Visualisation demo](./docs/www.youtube.com_watch_v=Akr53fdszY8.png)](https://www.youtube.com/watch?v=Akr53fdszY8)
 
-- [pem-ki](#pem-ki)
+- [Development of Media Systems: AI Applications (WS2020/2021)](#development-of-media-systems-ai-applications-ws20202021)
   - [Getting Started](#getting-started)
     - [Requirements](#requirements)
     - [Assets](#assets)
