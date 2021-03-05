@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
-using UnityEditor;
 using UnityEngine;
+using static UnityEditor.Handles;
 
 [ExecuteInEditMode]
 public class DistanceVisualization : MonoBehaviour
@@ -22,7 +22,7 @@ public class DistanceVisualization : MonoBehaviour
     {
         GUI.color = Color.black;
         var position = transform.position;
-        Handles.Label(position - (position - 
+        Label(position - (position - 
                                   target.transform.position)/2, distanceBetweenObjects.ToString(CultureInfo.CurrentCulture));
     }
 }

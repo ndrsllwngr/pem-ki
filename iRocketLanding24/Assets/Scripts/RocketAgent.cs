@@ -3,7 +3,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using System;
 using System.Globalization;
-using UnityEditor;
+using static UnityEditor.Handles;
 using Random = UnityEngine.Random;
 
 public class RocketAgent : Agent
@@ -118,10 +118,10 @@ public class RocketAgent : Agent
         GUI.color = Color.green;
         var position = transform.localPosition;
         const float rootY = -30;
-        Handles.Label(position + new Vector3(20,0,0),"STEPS(" + _totalSteps.ToString(CultureInfo.CurrentCulture)+")");
-        Handles.Label(position+ new Vector3(20,rootY * 1,0),"MAGNITUDE(" + _currentMagnitude.ToString(CultureInfo.CurrentCulture)+")");
-        Handles.Label(position+ new Vector3(20,rootY * 2,0),"VELOCITY(" + _currentAngularVelocity.ToString(CultureInfo.CurrentCulture)+")");
-        Handles.Label(position+ new Vector3(20,rootY * 3,0),"REWARD(" + GetCumulativeReward().ToString(CultureInfo.CurrentCulture)+")");
+        Label(position + new Vector3(20,0,0),"STEPS(" + _totalSteps.ToString(CultureInfo.CurrentCulture)+")");
+        Label(position+ new Vector3(20,rootY * 1,0),"MAGNITUDE(" + _currentMagnitude.ToString(CultureInfo.CurrentCulture)+")");
+        Label(position+ new Vector3(20,rootY * 2,0),"VELOCITY(" + _currentAngularVelocity.ToString(CultureInfo.CurrentCulture)+")");
+        Label(position+ new Vector3(20,rootY * 3,0),"REWARD(" + GetCumulativeReward().ToString(CultureInfo.CurrentCulture)+")");
     }
 
     protected void OnCollisionEnter(Collision other)
