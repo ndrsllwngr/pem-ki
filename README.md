@@ -1,4 +1,4 @@
-# Development of Media Systems: AI Applications (WS2020/2021)
+# Development of Media Systems: AI Applications (2021)
 Unity + ML-Agents project simulates a rocket flight from earth to moon, learning autonomous flying behaviour in varying gravity environments.
 
 - Final pitch [.pdf](./docs/2020-03-05%20PEM-KI%20Final%20pitch.pdf), Concept [.pdf](./docs/2021-02-24%20PEM-KI%20Concept.pdf)
