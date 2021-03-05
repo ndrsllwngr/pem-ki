@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Globalization;
+using UnityEngine.UI;
+
 // using static UnityEditor.Handles;
 
 public class EarthGravity : MonoBehaviour
@@ -13,6 +15,8 @@ public class EarthGravity : MonoBehaviour
     public bool enableUi;
     public Transform earth;
     public Transform moon;
+    public Text txtEarthDst;
+    public Text txtMoonDst;
 
     // private float _moonEarthDist;
     private Vector3 _gravityToEarth;
@@ -42,12 +46,16 @@ public class EarthGravity : MonoBehaviour
         _gravityToMoon = (moonPos - position).normalized * (float) (moonGravity / Math.Sqrt(rocketMoonDist));
         _rBody.AddForce(_gravityToEarth);
         _rBody.AddForce(_gravityToMoon);
+        
         if (!enableUi) return;
+        txtEarthDst.text = _gravityToEarth.magnitude.ToString(CultureInfo.CurrentCulture);
+        txtMoonDst.text = _gravityToMoon.magnitude.ToString(CultureInfo.CurrentCulture);
         var position1 = transform.position;
         Debug.DrawLine(position1, earth.transform.position, Color.green);
         Debug.DrawLine(position1, moon.transform.position, Color.green);
     }
     
+
     private void OnDrawGizmos()
     {
         if (!enableUi) return;

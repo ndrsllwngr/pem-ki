@@ -5,6 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using System;
 using System.Globalization;
+using UnityEngine.UI;
 // using UnityEditor;
 using Random = UnityEngine.Random;
 
@@ -15,6 +16,10 @@ public class RocketAgent : Agent
     private float _earthRadius;
     private bool _startedFromEarth;
     public bool enableUi;
+    public Text txtReward;
+    public Text txtTotalSteps;
+    public Text txtAngularVelocity;
+    public Text txtMagnitude;
 
     private const float MAXSteps = 10000;
     private float _totalSteps = 1;
@@ -105,6 +110,14 @@ public class RocketAgent : Agent
         }
     }
 
+    protected void Update()
+    {
+        txtReward.text = GetCumulativeReward().ToString(CultureInfo.CurrentCulture);
+        txtTotalSteps.text = _totalSteps.ToString(CultureInfo.CurrentCulture);
+        txtAngularVelocity.text = _currentAngularVelocity.ToString(CultureInfo.CurrentCulture);
+        txtMagnitude.text = _currentMagnitude.ToString(CultureInfo.CurrentCulture);
+    }
+
 
     protected void LateUpdate() {
         var transform1 = transform;
@@ -120,6 +133,7 @@ public class RocketAgent : Agent
         GUI.color = Color.green;
         //var position = transform.localPosition;
         const float rootY = -30;
+        //txtReward.text = GetCumulativeReward().ToString(CultureInfo.CurrentCulture);
         //Handles.Label(position + new Vector3(20,0,0),"STEPS(" + _totalSteps.ToString(CultureInfo.CurrentCulture)+")");
         //Handles.Label(position+ new Vector3(20,rootY * 1,0),"MAGNITUDE(" + _currentMagnitude.ToString(CultureInfo.CurrentCulture)+")");
         //Handles.Label(position+ new Vector3(20,rootY * 2,0),"VELOCITY(" + _currentAngularVelocity.ToString(CultureInfo.CurrentCulture)+")");
@@ -273,5 +287,10 @@ public class RocketAgent : Agent
         continuousActionsOut[0] = space0;
         continuousActionsOut[1] = space1;
         continuousActionsOut[2] = space2;
+    }
+
+    public void ToggleDrawLines(bool state)
+    {
+        enableUi = state;
     }
 }
