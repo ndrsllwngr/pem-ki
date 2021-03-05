@@ -1,0 +1,23 @@
+{
+    "RocketBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 245449,
+                "file_path": "results/high_gravity_v2/RocketBehaviour/RocketBehaviour-245449.onnx",
+                "reward": null,
+                "creation_time": 1614811679.5747607
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 245449,
+            "file_path": "results/high_gravity_v2/RocketBehaviour.onnx",
+            "reward": null,
+            "creation_time": 1614811679.5747607
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.1"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "RocketBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 88723,
+                "file_path": "results/high_gravity_v1/RocketBehaviour/RocketBehaviour-88723.onnx",
+                "reward": null,
+                "creation_time": 1614807871.342818
+            },
+            {
+                "steps": 114858,
+                "file_path": "results/high_gravity_v1/RocketBehaviour/RocketBehaviour-114858.onnx",
+                "reward": null,
+                "creation_time": 1614808023.0859141
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 114858,
+            "file_path": "results/high_gravity_v1/RocketBehaviour.onnx",
+            "reward": null,
+            "creation_time": 1614808023.0859141
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.1"
+    }
+}

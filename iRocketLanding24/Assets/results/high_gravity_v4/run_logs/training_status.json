@@ -1,0 +1,47 @@
+{
+    "RocketBehaviour": {
+        "checkpoints": [
+            {
+                "steps": 2260189,
+                "file_path": "results/high_gravity_v4/RocketBehaviour/RocketBehaviour-2260189.onnx",
+                "reward": null,
+                "creation_time": 1614824715.4539666
+            },
+            {
+                "steps": 2499822,
+                "file_path": "results/high_gravity_v4/RocketBehaviour/RocketBehaviour-2499822.onnx",
+                "reward": 5.195904482813442,
+                "creation_time": 1614826362.5446267
+            },
+            {
+                "steps": 2999992,
+                "file_path": "results/high_gravity_v4/RocketBehaviour/RocketBehaviour-2999992.onnx",
+                "reward": 6.076319210541745,
+                "creation_time": 1614832289.474981
+            },
+            {
+                "steps": 3499957,
+                "file_path": "results/high_gravity_v4/RocketBehaviour/RocketBehaviour-3499957.onnx",
+                "reward": 8.344513893127441,
+                "creation_time": 1614841456.8945093
+            },
+            {
+                "steps": 3880482,
+                "file_path": "results/high_gravity_v4/RocketBehaviour/RocketBehaviour-3880482.onnx",
+                "reward": null,
+                "creation_time": 1614847397.8815763
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 3880482,
+            "file_path": "results/high_gravity_v4/RocketBehaviour.onnx",
+            "reward": null,
+            "creation_time": 1614847397.8815763
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.24.0",
+        "torch_version": "1.7.1"
+    }
+}
